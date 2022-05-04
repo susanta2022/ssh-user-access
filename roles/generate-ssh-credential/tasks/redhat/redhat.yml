@@ -1,0 +1,8 @@
+# roles/example/tasks/redhat.yml
+
+- name: <<==== set variable as a global scope ====>
+  import_tasks: set-glb-variable.yml
+
+
+- name: <<<==== create ssh credential for user =====>>>
+  import_tasks: create-ssh-credential.yml

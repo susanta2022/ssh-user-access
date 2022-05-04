@@ -1,0 +1,7 @@
+# check node-ip and pass to the user email
+- name: check public dns for node
+  command: curl http://checkip.amazonaws.com
+  register: public_ip
+
+- name: set public ip
+  set_fact: public_ip ='{{public_ip.stdout}}'

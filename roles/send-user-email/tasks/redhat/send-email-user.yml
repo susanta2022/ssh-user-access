@@ -1,0 +1,25 @@
+- name: send email using gmail SMPT Server
+  mail:
+     host: smtp.gmail.com
+     port: 587
+     username: "{{SMTP_user}}"
+     password: "{{SMTP_PASSWD}}"
+     to: "{{email}}"
+     subject: SSH ACCESS
+     subtype: html
+     body: " Hi <h4>{{user_name}}</h4></br><p>your ssh private key passphrase <b>{{passphrase}}</b> and you are under a group <b>{{group}}</b>
+                    Your system public ip is/are <b>{{public_ip}}</b> , you can connect remote server using ssh client like <b>ssh -i id_{{user_name}}.key {{user}}@public_ip</b></p></br>
+                    <p> <u> if you want to connect remote server using putty then follow this command </u></p></br>
+                    <ul>
+                    <li>download the private key</li>
+                    <li>openssl rsa -in id_username.key -passin pass:passphrase  > username.pem</li>
+                    <li>now generate .ppk file from .pem file </li>
+                    </ul></br>
+                    
+                    <p> never share private key with passphrase to anyone </p>
+                    </br><p> If you face any kind of problem contact our devops administrator</p></br>
+                    <p> <h3>Thank You</h3> </p>"
+
+     attach: /root/.ssh/{{group}}/{{user}}/id_{{user}}.key
+  delegate_to: localhost
+  when: not "1" in user_path      

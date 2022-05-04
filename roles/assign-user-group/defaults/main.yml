@@ -1,0 +1,3 @@
+---
+# defaults file for roles/assign-user-group
+group_permission: "{{group_permission}}"

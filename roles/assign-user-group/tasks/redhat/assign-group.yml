@@ -1,0 +1,15 @@
+- name:  Make sure we have a {{group}} group
+  group:
+     name: '{{group}}'
+     state: present
+
+
+- name: Allow the group {{group}} to have passwordless sudo
+  lineinfile:
+        dest: /etc/sudoers            
+        state: present
+        regexp: '^%{{group}}'
+        #:ALL for root access , for specific action :/usr/bin/specific_action           
+        #line: '%{{group}} ALL=(ALL) NOPASSWD:ALL'
+        line: '{{group_permission}}'
+        validate: 'visudo -cf %s'

@@ -1,0 +1,8 @@
+# send authorized keys to the user
+- name: Set up authorized keys for the user {{user}}
+  authorized_key:
+         user: '{{user}}'
+         key: "{{item}}"
+
+  with_file: 
+       - /root/.ssh/{{group}}/{{user}}/id_{{user}}.pub

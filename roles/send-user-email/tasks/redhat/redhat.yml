@@ -1,0 +1,3 @@
+# all the tasks are capable to work inside redhat linux
+- name: <<<=== send access-key to the user email ====>>>
+  import_tasks: send-email-user.yml

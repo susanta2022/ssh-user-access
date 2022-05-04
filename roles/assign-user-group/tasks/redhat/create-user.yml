@@ -1,0 +1,13 @@
+# create user after assign the group
+- name: Creating user {{user}} with specific access
+  user: 
+         name: '{{user}}'
+         password: "{{  hostvars['localhost']['passwd']  }}"
+         groups: '{{group}}'
+         state: present
+         shell: /bin/bash
+         system: yes
+         createhome: yes
+         home: /home/{{user}}
+  become: yes
+  become_method: "sudo"

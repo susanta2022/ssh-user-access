@@ -1,0 +1,8 @@
+---
+# vars file for roles/send-user-email
+user: "{{hostvars['localhost']['user_name']}}"
+group: "{{hostvars['localhost']['group']}}"
+passphrase: "{{hostvars['localhost']['passphrase']}}"
+public_ip: "{% for host in groups['demo'] %}  {{hostvars[host]['public_ip'].stdout}}   {% endfor %}" 
+user_path: "{% for host in groups['demo'] %}{{hostvars[host]['user_ssh_path']}}{% endfor %}"
+email: "{{hostvars['localhost']['email']}}" 

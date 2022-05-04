@@ -1,0 +1,7 @@
+---
+# defaults file for roles/generate-ssh-credential
+user_name: "{{user_name}}"
+group: "{{group}}"
+passphrase: "{{passphrase}}"
+user_email: "{{user_email}}"
+password: "{{password}}"

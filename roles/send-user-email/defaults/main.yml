@@ -1,0 +1,4 @@
+---
+# defaults file for roles/send-user-email
+SMTP_user: "{{SMTP_user}}"
+SMTP_PASSWD: "{{SMTP_PASSWD}}"

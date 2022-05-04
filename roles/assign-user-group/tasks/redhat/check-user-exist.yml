@@ -1,0 +1,12 @@
+# <<====== check user already exist or not =======>>
+- name: <<<========== Checking if a /home/{{user}}/.ssh/ exists or not ==============>>>
+  stat:
+       path: "/home/{{user}}/.ssh"
+  register: ssh_path
+
+- name : <============ set variable for ssh_path if path not exist =============>
+  set_fact: user_ssh_path=0
+
+- name: <============ set variable for ssh_path if path is exist =============>
+  set_fact: user_ssh_path=1       
+  when: ssh_path.stat.exists

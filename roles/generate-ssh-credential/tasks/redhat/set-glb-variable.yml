@@ -1,0 +1,14 @@
+- name: set passsword
+  set_fact: passwd='{{password}}'
+
+- name: set user {{user_name}} as a global scope
+  set_fact: user_name='{{user_name}}'
+
+- name: set group {{group}} as a global scope
+  set_fact: group='{{group}}'
+
+- name: set passphrase {{passphrase}} as a global scope
+  set_fact: passphrase='{{passphrase}}' 
+
+- name: set user email  {{user_email}} as a global scope
+  set_fact: email='{{user_email}}'

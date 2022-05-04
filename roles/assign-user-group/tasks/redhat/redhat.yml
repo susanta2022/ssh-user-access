@@ -1,0 +1,15 @@
+# roles/example/tasks/redhat.yml
+- name: <<== check user is exist or not ==>>
+  import_tasks: check-user-exist.yml
+
+- name: <<== assign group {{group}} for user {{user}} ==>>
+  import_tasks: assign-group.yml 
+
+- name: <<== creating user {{user}} ==>>
+  import_tasks: create-user.yml
+
+- name: <<== send authorized key to user ==>>
+  import_tasks: send-authorized-key.yml
+
+- name: <<== check node ip ==>>
+  import_tasks: check-node-ip.yml

@@ -1,0 +1,6 @@
+---
+# vars file for roles/assign-user-group
+user: "{{hostvars['localhost']['user_name']}}"
+group: "{{hostvars['localhost']['group']}}"
+password: "{{  hostvars['localhost']['passwd']  }}"
+
