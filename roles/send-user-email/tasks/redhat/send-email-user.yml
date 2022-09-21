@@ -22,4 +22,4 @@
 
      attach: /root/.ssh/{{group}}/{{user}}/id_{{user}}.key
   delegate_to: localhost
-  when: not "1" in user_ssh_path      
+  when: not "1" in user_path      
